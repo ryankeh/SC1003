@@ -1,9 +1,4 @@
-from sense_hat import SenseHat
-from time import sleep
-from random import randint
-sense=SenseHat()
-sense.show_message("hello ntu", scroll_speed=0.01)
-
+def arrowGame():
 #acceleration = sense.get_accelerometer_raw()
 #x = acceleration['x'] 
 #y = acceleration['y']
@@ -13,16 +8,20 @@ sense.show_message("hello ntu", scroll_speed=0.01)
 #set rotation 90, -1.1<x<-0.8
 #set rotation 180, -1.1<y<-0.8
 #set rotation 270, 0.8<x<1.1
+    
+    a = (0, 255, 0)
+    b = (0, 0, 0)
+    answer=1
+    score=0
+    randomNumber=0
+    randomNumberRaw=0
 
-a = (0, 255, 0)
-b = (0, 0, 0)
-answer=1
-score=0
-
-while answer==1:
-      randomNumber=randint(0,3)
-      sense.set_rotation(randomNumber*90)
-      image_pixels =[b, b, b, b, b, b, b, b,
+    while answer==1:
+        while randomNumber==randomNumberRaw:
+            randomNumberRaw=randint(0,3)
+        randomNumber=randomNumberRaw
+        sense.set_rotation(randomNumber*90)
+        image_pixels =[b, b, b, b, b, b, b, b,
 b, b, b, a, b, b, b, b,
 b, b, a, a, a, b, b, b,
 b, a, b, a, b, a, b, b,
@@ -30,21 +29,21 @@ b, b, b, a, b, b, b, b,
 b, b, b, a, b, b, b, b,
 b, b, b, a, b, b, b, b, 
 b, b, b, b, b, b, b, b]
-      sense.set_pixels(image_pixels)
-      sleep(1)
-      acceleration = sense.get_accelerometer_raw()
-      x = acceleration['x'] 
-      y = acceleration['y']
-      z = acceleration['z']
-      if randomNumber==0 and 0.8<y<1.1:
+        sense.set_pixels(image_pixels)
+        sleep(1)
+        acceleration = sense.get_accelerometer_raw()
+        x = acceleration['x'] 
+        y = acceleration['y']
+        z = acceleration['z']
+        if randomNumber==0 and 0.8<y<1.1:
             print("success")
-      elif randomNumber==1 and -1.1<x<-0.8:
+        elif randomNumber==1 and -1.1<x<-0.8:
             print("success")
-      elif randomNumber==2 and -1.1<y<-0.8:
+        elif randomNumber==2 and -1.1<y<-0.8:
             print("success")
-      elif randomNumber==3 and 0.8<x<1.1:
+        elif randomNumber==3 and 0.8<x<1.1:
             print("success")
-      else:
+        else:
             print("failure")
             print(x,y,z)
             print("Congratulations!! Your score is:", score)
@@ -59,4 +58,4 @@ b, b, b, a, b, b, b, b,
 b, b, b, a, b, b, b, b, 
 b, b, b, b, b, b, b, b]
             sense.set_pixels(image_pixels)
-      score=score+1
+        score=score+1
