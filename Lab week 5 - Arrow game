@@ -1,3 +1,11 @@
+from sense_hat import SenseHat
+from time import sleep
+from random import randint
+sense=SenseHat()
+sense.show_message("hello ntu", scroll_speed=0.01)
+
+sense.clear()
+
 def arrowGame():
 #acceleration = sense.get_accelerometer_raw()
 #x = acceleration['x'] 
