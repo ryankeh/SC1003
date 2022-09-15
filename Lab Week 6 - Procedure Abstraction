@@ -40,3 +40,4 @@ sense.show_message("I got it!", text_colour=msg_color,scroll_speed=0.05)
 
 #exercise 5b
 #from filename import get_colour
+#to prevent code from running twice in 5b, remove the last paragraph in original code
