@@ -38,6 +38,12 @@ def showMarble():
     sense.set_pixels(board_1D)    # display it
     return x, y
     
+# orientation()
+# ex6a
+
+# showMarble()
+# ex6b()
+
 # This function checks the pitch value and the x coordinate  
 # to determine whether to move the marble in the x-direction.
 # Similarly, it checks the roll value and y coordinate to
@@ -53,10 +59,13 @@ def move_marble(pitch,roll,x,y):
         new_y += 1    # move up
     elif 359 > roll > 179 and y != 0:
         new_y -= 1    # move down
+    x = new_x
+    y = new_y
+    return x,y
 
-    return new_x, new_y
-
-def showMarble2(new_x,new_y):
+def rollMarble():
+    x=3
+    y=3
     b = (0, 0, 0)
     w = (255,255,255)
     board = [[b,b,b,b,b,b,b,b], 
@@ -67,32 +76,14 @@ def showMarble2(new_x,new_y):
              [b,b,b,b,b,b,b,b],
              [b,b,b,b,b,b,b,b], 
              [b,b,b,b,b,b,b,b] ]
-    y=new_y				# y coordinate of marble
-    x=new_x				# x coordinate of marble
-    board[y][x]=w		# a white marble
-    
-    board_1D=sum(board,[])        # convert to 1-dimension list
-    print(board_1D)               # for code debugging
-    sense.set_pixels(board_1D)    # display it
-    return x,y
+    while True:
+        pitch = sense.get_orientation()['pitch'] 
+        roll = sense.get_orientation()['roll'] 
+        board[y][x] = b
+        x,y = move_marble(pitch,roll,x,y)
+        board[y][x] = w
+        sense.set_pixels(sum(board,[]))
+        sleep(0.05)
 
-# orientation()
-# ex6a
-
-# showMarble()
-# ex6b()
-
-# live = 1
-# showMarble()
-# while live>0:
-#     orientation()
-#     move_marble(pitch,roll,x,y)
-#     showMarble2(new_x,new_y)
-    
-while True:
-    pitch = sense.get_orientation()['pitch'] 
-    roll = sense.get_orientation()['roll'] 
-    x,y = move_marble(pitch,roll,x,y)
-    board[y][x] = w
-    sense.set_pixels(sum(board,[]))
-    sleep(0.05)
+# rollMarble()
+# ex6c
