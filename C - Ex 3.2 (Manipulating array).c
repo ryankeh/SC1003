@@ -68,5 +68,11 @@ void swap2Rows(int ar[][SIZE], int r1, int r2)
 }
 void swap2Cols(int ar[][SIZE], int c1, int c2)
 {
-   /* Write your code here */
+   int temp,j;
+    for (j=0; j<SIZE; j++){
+        temp = ar[j][c1];
+        ar[j][c1] = ar[j][c2];
+        ar[j][c2] = temp;
+    }
+    return ar;
 }
