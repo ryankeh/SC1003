@@ -1,14 +1,14 @@
 #include <stdio.h>
 int main()  
 {
-    int integerinput=0, integersum=0, lines, i, j, denominator=0;
+    int integerinput=0, integersum=0, lines, i, lineNumber, denominator=0;
     float average;
     printf("Number of lines: ");
     scanf("%d", &lines);
     
     for (i=0; i<lines; i++){
-        j=i+1;
-        printf("Enter line %d (end with -1):", j);
+        lineNumber=i+1;
+        printf("Enter line %d (end with -1):", lineNumber);
         while (integerinput != -1)
             {
             scanf("%d", &integerinput);
