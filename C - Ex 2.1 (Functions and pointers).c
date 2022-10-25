@@ -110,11 +110,20 @@ void digitPos2(int num, int digit, int *result)
 
 int square1(int num)
 {  
-   while num>0:{
-       
+   int result=0,i=1;
+   if (num>0){
+       while (num>0){
+       result+=i;
+       i+=2;
+       num-=1;
+       }
    }
+   else{
+       result=0;
+   }
+   return result;
 }   
 void square2(int num, int *result)
 {        
-   /* W */
+    *result=square1(num);
 }
