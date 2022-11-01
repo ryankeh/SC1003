@@ -20,20 +20,33 @@ int i=0,j=0;
 char returnString[80];
 while (1){
     if (str[i] == '\0') {
-        printf("Hi\n");
         break;
     }
-    else if (str[i]!=' '){
+    else if (str[i]!=32){
         returnString[j++] = str[i];
     }
     i++;
     }
 returnString[j] = '\0';
-printf("%s", returnString);
-return returnString;
+// printf("%s\n", returnString);
+str = returnString;
+return str;
 }
 
 char *sweepSpace2(char *str)   
 {
-   /* Write your program code here */
+int i=0,j=0;
+while (1){
+    if (*(str+i) == '\0') {
+        break;
+    }
+    else if (*(str+i)!=32){
+        *(str+j) = *(str+i);
+        j++;
+    }
+    i++;
+    }
+*(str+j) = '\0';
+// printf("%s\n", str);
+return str;
 }
