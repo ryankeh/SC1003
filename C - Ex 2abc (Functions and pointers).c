@@ -87,11 +87,11 @@ int digitPos1(int num, int digit)
    do {
       pos++;
       if (num%10 == digit){
-        break;
+        return pos;
       }
       num = num/10;
    } while (num > 0);
-   return pos;
+   return 0;
 }
 
 void digitPos2(int num, int digit, int *result) 
