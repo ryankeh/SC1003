@@ -22,14 +22,14 @@ int remDuplicates(int a[], int size)
 	/*edit*/
  int j=0,i=0,max=0;
     for (i=0; i<size;i++) {
-        if (max < a[i]) {
-        max = a[i];
+        if (max<a[i]) {
+        max=a[i];
         }
     }
 // max = a[size-1]; can also be used instead of for loop above to find max value
-    for(i=0;i<size;i++){
+    for(i=1;i<size;i++){
         j=0;
-        while(a[i]==a[i-1]){
+        while(a[i]<=a[i-1]){
             a[i]=a[i+j];
             j++;
         }
