@@ -28,7 +28,12 @@ int remDuplicates(int a[], int size)
             j++;
         }
         if(a[i]>a[i+1]){
-            a[i+1]='\0';
+            size=i+1;
+            break;
+        }
+        if(a[i]==0){
+            size=i;
+            break;
         }
     }
 
