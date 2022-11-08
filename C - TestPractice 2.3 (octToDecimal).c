@@ -3,15 +3,15 @@
 int main()
 {      
 	/*edit*/
-    int input, output=0;
+    int input, output=0,i=1;
     
     printf("Enter an octal number:\n");
     scanf("%d", &input);
-    output+=((input/100)*64);
-    input-=((input/100)*100);
-    output+=((input/10)*8);
-    input-=((input/10)*10);
-    output+=input;
+    while(input!=0){
+        output+=(input%10)*pow(8,i-1);
+        input/=10;
+        i++;
+    }
     printf("The equivalent decimal number: %d\n", output); 
 
 
