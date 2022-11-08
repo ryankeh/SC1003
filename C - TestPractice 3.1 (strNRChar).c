@@ -1,5 +1,3 @@
-// string in main function remains a null string, need to use pointer instead
-
 #include <stdio.h>   
 #include <string.h>
 char *strNRChr(char *str, int n, char ch);
@@ -17,7 +15,6 @@ int main()
    printf("Enter the occurrence: \n");
    scanf("%d", &n);    
    temp = strNRChr(str, n, ch); 
-   printf("strNRChr(): %s\n", temp);
    if (temp!=NULL)  
       printf("strNRChr(): %s\n", temp);   
    else 
@@ -28,27 +25,24 @@ char *strNRChr(char *str, int n, char ch)
 { 
 	/*edit*/
 /* Write your code here */
-printf("original string: %s\n", str); 
-int length,i=0;
-char outputStr[80],flipStr[80];
+int length,i=0,j=0,k=0;
 length=strlen(str);
-printf("string length: %d\n", length); 
-while(n!=0){
-    flipStr[i]=str[length-1];
-    printf("flipStr: %s\n", flipStr);
-    if(str[length-1]==ch){
-        n--;
+for(i;i<length;i++){
+    if(str[i]==ch){
+        j+=1;
     }
-    length--;
-    i++;
 }
-flipStr[i]='\0';
-printf("flipStr: %s\n", flipStr);
-length=strlen(flipStr);
+if(j==0){
+    return NULL;
+}
+k=j-n+1;
 for(i=0;i<length;i++){
-    outputStr[i]=flipStr[length-1-i];
+    if(str[i]==ch){
+        k--;
+    }
+    if(k==0){
+        return (str+i);
+    }
 }
-printf("outputStr: %s\n", outputStr);
-return outputStr;
 	/*end_edit*/
 }
