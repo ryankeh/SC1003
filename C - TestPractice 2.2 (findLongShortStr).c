@@ -40,7 +40,7 @@ void findLongShortStr(char str[N][81], char *longStr, char *shortStr, int size)
      }
  }
  for(j=0;j<min;j++){
-             shortStr[j]=str[minI][j];
+ 	strcpy(shortStr,str[minI]);
  }
 
 
