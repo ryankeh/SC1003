@@ -46,7 +46,7 @@ int main()
             break;
          case 4:
             printf("findCustomer(): \n");
-            // findCustomer(r);
+            findCustomer(r);
             break;
       }
    } while (choice!=5);  
@@ -128,5 +128,18 @@ void removeRoom(Room *r){
         else{
             continue;
         }
+    }
+}
+
+void removeRoom(Room *r){
+    int i,j=0;
+    for(i=1;i<=5;i++){
+        if (r[i].status==0){
+            j+=1;
+        }
+    }
+    if(j==5){
+        printf("\e[1mAll the rooms are empty\e[m\n");
+        return;
     }
 }
