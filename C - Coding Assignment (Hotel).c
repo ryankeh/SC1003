@@ -135,7 +135,7 @@ void removeRoom(Room *r){
 
 void findCustomer(Room *r){
     int i,j=0,n=0,lengtha,lengthb;
-    char stra[80],strb[80];
+    char stra[80],strb[80]="";
     printf("Enter customer name: \n");
     scanf("%s", stra);
     lengtha=strlen(stra);
@@ -143,20 +143,26 @@ void findCustomer(Room *r){
         stra[i]=tolower(stra[i]);
     }
     for(i=1;i<=5;i++){
-        lengthb=strlen(r[i].customerName);
-        for(j=0;j<lengthb;j++){
-            strb[j]=tolower(r[i].customerName[j]);
-        }
-        if(strcmp(stra,strb)==0){
-            printf("The target customer name is found\n");
-            printf("roomID: %d\n", r[i].roomID);
-            printf("customer name: %s\n", r[i].customerName);
+        if(r[i].status==1){
+            lengthb=strlen(r[i].customerName);
+            printf("lengthb: %d\n",lengthb);
+            for(j=0;j<lengthb;j++){
+                strb[j]=tolower(r[i].customerName[j]);
+            }
+            if(strcmp(stra,strb)==0){
+                printf("The target customer name is found\n");
+                printf("roomID: %d\n", r[i].roomID);
+                printf("customer name: %s\n", r[i].customerName);
+            }
+            else{
+                n+=1;
+            }
         }
         else{
             n+=1;
         }
     }
-    if(j==5){
+    if(n==5){
         printf("\e[1mThe target customer name is not found\e[m\n");
         return;
     }
