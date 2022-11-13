@@ -1,3 +1,10 @@
+	/*edit*/
+
+/*custom header*/
+
+	/*end_edit*/
+	/*edit*/
+/* Write your code here */
 #include <stdio.h>
 #include <string.h>
 #define MAX 5
@@ -11,6 +18,7 @@ void listOccupiedRooms(Room *r);
 void assignRoom(Room *r);
 void removeRoom(Room *r);
 void findCustomer(Room *r);
+void modify(char str[], int size);
 
 int main()
 {    
@@ -139,6 +147,7 @@ void findCustomer(Room *r){
     int i,j=0,n=0,lengtha,lengthb;
     char stra[80],strb[80]="";
     char dummyChar;
+    scanf("%c", &dummyChar);
     printf("Enter customer name: \n");
     fgets(stra, 80, stdin);
     lengtha=strlen(stra);
@@ -147,10 +156,8 @@ void findCustomer(Room *r){
     }
     for(i=1;i<=5;i++){
         if(r[i].status==1){
-            lengthb=strlen(r[i].customerName);
-            for(j=0;j<lengthb;j++){
-                strb[j]=tolower(r[i].customerName[j]);
-            }
+            strcpy(strb, r[i].customerName);
+            modify(strb, 20);
             if(strcmp(stra,strb)==0){
                 printf("The target customer name is found\n");
                 printf("roomID: %d\n", r[i].roomID);
@@ -169,3 +176,11 @@ void findCustomer(Room *r){
         return;
     }
 }
+
+void modify(char str[], int size){
+    for (int i = 0; i < size; i++){
+        str[i] = tolower(str[i]);
+    }
+}
+
+	/*end_edit*/
