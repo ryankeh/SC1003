@@ -58,8 +58,8 @@ void assignRoom(Room *r){
             break;
             }
         printf("Enter customer name: \n");
-        fgets(r‐>customerName, 80, stdin);
+        fgets(r->customerName, 80, stdin);
         printf("The room has been assigned successfully\n");
         break;
     }
-}        
+}     
