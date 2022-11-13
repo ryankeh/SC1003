@@ -1,10 +1,10 @@
 #include <stdio.h>
-
+#define MAX 100
 typedef struct{
  int roomID;
  int status;
  char customerName[20];
-}room; 
+}Room; 
 
 void listOccupiedRooms();   
 void assignRoom();
@@ -13,11 +13,11 @@ void findCustomer();
 
 int main()
 {    
+   Room r[MAX];
    int i,j;        
    int choice;
-   int roomChoice, resulta;
-   int room.roomID, room.status;
-   char room.customername[20];
+   int roomChoice;
+   int resulta;
     
    printf("NTU HOTEL ROOM RESERVATION PROGRAM: \n");
    printf("1: listOccupiedRooms()\n");      
@@ -31,18 +31,11 @@ int main()
       switch (choice) {
          case 1:  
             printf("listOccupiedRooms(): \n");
-            listOccupiedRooms();  
+            listOccupiedRooms(r);  
             break;
          case 2:   
             printf("assignRoom(): \n");
-                 
-            resulta=assignRoom(int roomChoice);
-            if(resulta==1){
-              printf("The room has been assigned successfully\n");
-              }
-            if(resulta==0){
-              printf("\e[1mOccupied! Enter another roomID\e[m\n"); //\e[1m sets bold and \e[m resets bold
-              }       
+            assignRoom(r);
             break;
          case 3:   
             printf("removeRoom(): \n");       
@@ -57,16 +50,22 @@ int main()
    return 0;
 }
 
-void assignRoom(){
-   char nameInput[80];
-   while (1) {
+void assignRoom(Room *room){
+    char nameInput[80];
+    while (1) {
       printf("Enter a roomID between 1 and 5: \n");
       scanf("%d", &(room->roomChoice));
       if (p=strchr(room‐>customerName,'\n')) *p = '\0';
       printf("Enter customer name: \n");
       fgets(room‐>customerName, 80, stdin);     
       size++;
-   }
+    }
+    if(resulta==1){
+        printf("The room has been assigned successfully\n");
+              }
+    if(resulta==0){
+              printf("\e[1mOccupied! Enter another roomID\e[m\n"); //\e[1m sets bold and \e[m resets bold
+              }      
    room[roomChoice].roomID = roomChoice;
    fgets(nameInput, 80, stdin);
    room[roomChoice].customerName = nameInput;
