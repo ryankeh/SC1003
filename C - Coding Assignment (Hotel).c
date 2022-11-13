@@ -29,7 +29,7 @@ int main()
       switch (choice) {
          case 1:  
             printf("listOccupiedRooms(): \n");
-            listOccupiedRooms(r);  
+            // listOccupiedRooms(r);  
             break;
          case 2:   
             printf("assignRoom(): \n");
@@ -37,11 +37,11 @@ int main()
             break;
          case 3:   
             printf("removeRoom(): \n");       
-            removeRoom();
+            // removeRoom();
             break;
          case 4:
             printf("findCustomer(): \n");
-            findCustomer();
+            // findCustomer();
             break;
       }
    } while (choice!=5);  
@@ -56,10 +56,13 @@ void assignRoom(Room *r){
         if(r->status==1){
             printf("\e[1mOccupied! Enter another roomID\e[m\n"); //\e[1m sets bold and \e[m resets bold
             break;
-            }
-        printf("Enter customer name: \n");
-        fgets(r->customerName, 80, stdin);
-        printf("The room has been assigned successfully\n");
+        }
+        else{
+            printf("Enter customer name: \n");
+            scanf("%c", &(r->customerName));
+            // fgets(r->customerName, 80, stdin);
+            printf("The room has been assigned successfully\n");
+        }
         break;
     }
-}          
+}      
