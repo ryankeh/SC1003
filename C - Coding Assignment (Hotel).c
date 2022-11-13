@@ -4,12 +4,12 @@ typedef struct{
  int roomID;
  int status;
  char customerName[20];
-}Room; 
+} Room; 
 
-void listOccupiedRooms();   
-void assignRoom();
-void removeRoom();
-void findCustomer();
+void listOccupiedRooms(Room *r);   
+void assignRoom(Room *r);
+void removeRoom(Room *r);
+void findCustomer(Room *r);
 
 int main()
 {    
@@ -62,4 +62,4 @@ void assignRoom(Room *r){
         printf("The room has been assigned successfully\n");
         break;
     }
-}    
+}        
