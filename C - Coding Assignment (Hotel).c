@@ -49,18 +49,21 @@ int main()
 }
 
 void assignRoom(Room *r){
+    int i;
     char nameInput[80];
     while (1) {
         printf("Enter a roomID between 1 and 5: \n");
-        scanf("%d", &(r->roomID));
-        if(r->status==1){
+        scanf("%d", &i);
+        r[i].roomID=i;
+        if(r[i].status==1){
             printf("\e[1mOccupied! Enter another roomID\e[m\n"); //\e[1m sets bold and \e[m resets bold
             break;
         }
         else{
             printf("Enter customer name: \n");
-            scanf("%c", &(r->customerName));
-            // fgets(r->customerName, 80, stdin);
+            fgets(r[i].customerName, 80, stdin);
+            // sscanf("%c", &nameInput);
+            // r[i].customerName=nameInput;
             printf("The room has been assigned successfully\n");
         }
         break;
