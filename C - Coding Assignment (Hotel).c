@@ -55,17 +55,19 @@ void assignRoom(Room *r){
         printf("Enter a roomID between 1 and 5: \n");
         scanf("%d", &i);
         r[i].roomID=i;
+        printf("Room ID: %d\n", r[i].roomID);
         if(r[i].status==1){
             printf("\e[1mOccupied! Enter another roomID\e[m\n"); //\e[1m sets bold and \e[m resets bold
             break;
         }
         else{
             printf("Enter customer name: \n");
-            fgets(r[i].customerName, 80, stdin);
-            // sscanf("%c", &nameInput);
-            // r[i].customerName=nameInput;
-            printf("The room has been assigned successfully\n");
+            // fgets(r[i].customerName, 80, stdin);
+            sscanf(" %c", r[i].customerName);
+            if(1){
+                printf("The room has been assigned successfully\n");
+            }
         }
         break;
     }
-}          
+}
