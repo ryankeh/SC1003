@@ -16,6 +16,7 @@ int main()
    int i,j;        
    int choice;
    int roomChoice, resulta;
+   Room room[roomChoice];
     
    printf("NTU HOTEL ROOM RESERVATION PROGRAM: \n");
    printf("1: listOccupiedRooms()\n");      
@@ -33,14 +34,14 @@ int main()
             break;
          case 2:   
             printf("assignRoom(): \n");
-            printf("Enter a roomID between 1 and 5: \n);
+            printf("Enter a roomID between 1 and 5: \n");
             scanf("%d", &roomChoice);     
             resulta=assignRoom(int roomChoice);
             if(resulta==1){
               print("The room has been assigned successfully\n");
               }
             if(resulta==0){
-              print("\e[1mOccupied! Enter another roomID\n\e[m"); //\e[1m sets bold and \e[m resets bold
+              print("\e[1mOccupied! Enter another roomID\e[m\n"); //\e[1m sets bold and \e[m resets bold
               }       
             break;
          case 3:   
@@ -57,5 +58,9 @@ int main()
 }
 
 int assignRoom(int roomChoice){
-                   
+   char nameInput[80];
+   room[roomChoice].roomID = roomChoice
+   printf("Enter customer name: \n");
+   scanf("%c", &nameInput);
+   room[roomChoice].customerName = nameInput;
 }                   
