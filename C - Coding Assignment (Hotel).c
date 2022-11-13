@@ -39,19 +39,23 @@ int main()
             if(resulta==1){
               print("The room has been assigned successfully\n");
               }
+            if(resulta==0){
+              print("\e[1mOccupied! Enter another roomID\n\e[m"); //\e[1m sets bold and \e[m resets bold
+              }       
             break;
          case 3:   
             printf("removeRoom(): \n");       
-            scanf("%d %d", &col1, &col2);
-            swap2Cols(array, col1, col2);
-            printf("The new array is: \n");       
-            display(array);
+            
             break;
          case 4:
             printf("findCustomer(): \n");
-            display(array);
+            
             break;
       }
    } while (choice < 5);  
    return 0;
 }
+
+int assignRoom(int roomChoice){
+                   
+}                   
