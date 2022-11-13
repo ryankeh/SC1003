@@ -161,7 +161,7 @@ void findCustomer(Room *r){
             if(strcmp(stra,strb)==0){
                 printf("The target customer name is found\n");
                 printf("roomID: %d\n", r[i].roomID);
-                printf("customer name: %s\n", r[i].customerName);
+                printf("customer name: %s", r[i].customerName);
             }
             else{
                 n+=1;
