@@ -1,10 +1,3 @@
-	/*edit*/
-
-/*custom header*/
-
-	/*end_edit*/
-	/*edit*/
-/* Write your code here */
 #include <stdio.h>
 #include <string.h>
 #define MAX 5
@@ -162,7 +155,7 @@ void findCustomer(Room *r){
                 printf("The target customer name is found\n");
                 printf("roomID: %d\n", r[i].roomID);
                 printf("customer name: %s", r[i].customerName);
-		return;
+                return;
             }
             else{
                 n+=1;
@@ -183,5 +176,3 @@ void modify(char str[], int size){
         str[i] = tolower(str[i]);
     }
 }
-
-	/*end_edit*/
