@@ -60,7 +60,7 @@ void listOccupiedRooms(Room *r){
     for(i=1;i<=5;i++){
         if (r[i].status==1){
             printf("roomID: %d\n", r[i].roomID);
-            printf("customer name: %s\n", r[i].customerName);
+            printf("customer name: %s", r[i].customerName);
             j+=1;
         }
     }
@@ -138,8 +138,9 @@ void removeRoom(Room *r){
 void findCustomer(Room *r){
     int i,j=0,n=0,lengtha,lengthb;
     char stra[80],strb[80]="";
+    char dummyChar;
     printf("Enter customer name: \n");
-    scanf("%s", stra);
+    fgets(stra, 80, stdin);
     lengtha=strlen(stra);
     for(i=0;i<lengtha;i++){
         stra[i]=tolower(stra[i]);
@@ -147,7 +148,6 @@ void findCustomer(Room *r){
     for(i=1;i<=5;i++){
         if(r[i].status==1){
             lengthb=strlen(r[i].customerName);
-            printf("lengthb: %d\n",lengthb);
             for(j=0;j<lengthb;j++){
                 strb[j]=tolower(r[i].customerName[j]);
             }
