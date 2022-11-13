@@ -31,11 +31,11 @@ int main()
    printf("5: quit\n");  
    do {
       printf("Enter your choice: \n");
-      scanf("%d", &choice);
+      scanf("\n%d", &choice);
       switch (choice) {
          case 1:  
             printf("listOccupiedRooms(): \n");
-            listOccupiedRooms(r);  
+            listOccupiedRooms(r);
             break;
          case 2:   
             printf("assignRoom(): \n");
@@ -58,6 +58,7 @@ void listOccupiedRooms(Room *r){
     int i=0,j=0;
     for(i=1;i<=5;i++){
         if (r[i].status==1){
+            printf("roomID: %d\n", r[i].roomID);
             printf("customer name: %s\n", r[i].customerName);
             j+=1;
         }
@@ -83,16 +84,16 @@ void assignRoom(Room *r){
         printf("Enter a roomID between 1 and 5: \n");
         scanf("%d", &i);
         if(0<i && i<6){
-            printf("Room ID: %d\n", r[i].roomID);
             if(r[i].status==1){
                 printf("Occupied! Enter another roomID\n");
             }
             else{
                 printf("Enter customer name: \n");
-                scanf("\n%s", r[i].customerName);
+                fgets(r[i].customerName, 80, stdin);
+                // scanf("\n%s", r[i].customerName);
                 printf("The room has been assigned successfully\n");
                 r[i].status=1;
-                break;
+                return;
             }
         }
         else{
