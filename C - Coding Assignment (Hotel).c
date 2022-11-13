@@ -63,10 +63,10 @@ void assignRoom(Room *r){
         else{
             printf("Enter customer name: \n");
             // fgets(r[i].customerName, 80, stdin);
-            sscanf(" %c", r[i].customerName);
-            if(1){
-                printf("The room has been assigned successfully\n");
-            }
+            scanf("\n%s", r[i].customerName);
+            printf("customer name: %s\n", r[i].customerName);
+            printf("The room has been assigned successfully\n");
+            r[i].status=1;
         }
         break;
     }
