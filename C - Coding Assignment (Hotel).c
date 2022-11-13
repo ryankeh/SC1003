@@ -28,7 +28,7 @@ int main()
    printf("2: assignRoom()\n");
    printf("3: removeRoom()\n");
    printf("4: findCustomer()\n");
-   printf("5: quit()\n");  
+   printf("5: quit\n");  
    do {
       printf("Enter your choice: \n");
       scanf("%d", &choice);
