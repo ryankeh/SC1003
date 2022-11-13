@@ -16,9 +16,7 @@ int main()
    Room r[MAX];
    int i,j;        
    int choice;
-   int roomChoice;
-   int resulta;
-    
+
    printf("NTU HOTEL ROOM RESERVATION PROGRAM: \n");
    printf("1: listOccupiedRooms()\n");      
    printf("2: assignRoom()\n");
@@ -50,23 +48,18 @@ int main()
    return 0;
 }
 
-void assignRoom(Room *room){
+void assignRoom(Room *r){
     char nameInput[80];
     while (1) {
-      printf("Enter a roomID between 1 and 5: \n");
-      scanf("%d", &(room->roomChoice));
-      if (p=strchr(room‐>customerName,'\n')) *p = '\0';
-      printf("Enter customer name: \n");
-      fgets(room‐>customerName, 80, stdin);     
-      size++;
-    }
-    if(resulta==1){
+        printf("Enter a roomID between 1 and 5: \n");
+        scanf("%d", &(r->roomID));
+        if(r->status==1){
+            printf("\e[1mOccupied! Enter another roomID\e[m\n"); //\e[1m sets bold and \e[m resets bold
+            break;
+            }
+        printf("Enter customer name: \n");
+        fgets(r‐>customerName, 80, stdin);
         printf("The room has been assigned successfully\n");
-              }
-    if(resulta==0){
-              printf("\e[1mOccupied! Enter another roomID\e[m\n"); //\e[1m sets bold and \e[m resets bold
-              }      
-   room[roomChoice].roomID = roomChoice;
-   fgets(nameInput, 80, stdin);
-   room[roomChoice].customerName = nameInput;
-}          
+        break;
+    }
+}    
