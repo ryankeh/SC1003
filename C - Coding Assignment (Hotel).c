@@ -7,7 +7,7 @@ typedef struct{
 }room; 
 
 void listOccupiedRooms();   
-void assignRoom(int roomChoice);
+void assignRoom();
 void removeRoom();
 void findCustomer();
 
@@ -57,20 +57,14 @@ int main()
    return 0;
 }
 
-void assignRoom(int roomChoice){
+void assignRoom(){
    char nameInput[80];
    while (1) {
       printf("Enter a roomID between 1 and 5: \n");
       scanf("%d", &(room->roomChoice));
-      if (p=strchr(pb‐>name,'\n')) *p = '\0';
-      if (strcmp(pb‐>name,"#")==0)
-         break;
+      if (p=strchr(room‐>customerName,'\n')) *p = '\0';
       printf("Enter customer name: \n");
-      fgets(pb‐>name, 80, stdin);   
-      printf("Enter tel: \n");
-      scanf("%d",&(pb‐>telno));  
-      fgets(dummy, 80, stdin);    
-      pb++;
+      fgets(room‐>customerName, 80, stdin);     
       size++;
    }
    room[roomChoice].roomID = roomChoice;
