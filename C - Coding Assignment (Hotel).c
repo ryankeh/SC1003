@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define MAX 100
+#define MAX 5
 typedef struct{
  int roomID;
  int status;
@@ -15,7 +15,7 @@ int main()
 {    
    Room r[MAX];
    int i,j;        
-   int choice;
+   int choice=0;
 
    printf("NTU HOTEL ROOM RESERVATION PROGRAM: \n");
    printf("1: listOccupiedRooms()\n");      
@@ -37,14 +37,14 @@ int main()
             break;
          case 3:   
             printf("removeRoom(): \n");       
-            
+            removeRoom();
             break;
          case 4:
             printf("findCustomer(): \n");
-            
+            findCustomer();
             break;
       }
-   } while (choice < 5);  
+   } while (choice!=5);  
    return 0;
 }
 
@@ -62,4 +62,4 @@ void assignRoom(Room *r){
         printf("The room has been assigned successfully\n");
         break;
     }
-}     
+}          
