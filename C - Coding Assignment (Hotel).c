@@ -71,7 +71,7 @@ void listOccupiedRooms(Room *r){
 }
 
 void assignRoom(Room *r){
-    int i,j=0;
+    int i,j=0,a=1;
     char nameInput[80];
     char dummyChar;
     for(i=1;i<=5;i++){
@@ -83,28 +83,26 @@ void assignRoom(Room *r){
         printf("The hotel is full\n");
         return;
     }
-    while (1) {
+    do{
         printf("Enter a roomID between 1 and 5: \n");
         scanf("%d", &i);
-        scanf("%c", &dummyChar);
         if(0<i && i<6){
             if(r[i].status==1){
                 printf("Occupied! Enter another roomID\n");
+                scanf("%c", &dummyChar);
                 continue;
             }
             else{
+                scanf("%c", &dummyChar);
                 printf("Enter customer name: \n");
                 fgets(r[i].customerName, 80, stdin);
-                // scanf("\n%s", r[i].customerName);
                 printf("The room has been assigned successfully\n");
                 r[i].status=1;
                 return;
             }
         }
-        else{
-            continue;
-        }
-    }
+    }while (a);
+   
 }
 
 void removeRoom(Room *r){
