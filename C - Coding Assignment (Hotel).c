@@ -38,10 +38,10 @@ int main()
             scanf("%d", &roomChoice);     
             resulta=assignRoom(int roomChoice);
             if(resulta==1){
-              print("The room has been assigned successfully\n");
+              printf("The room has been assigned successfully\n");
               }
             if(resulta==0){
-              print("\e[1mOccupied! Enter another roomID\e[m\n"); //\e[1m sets bold and \e[m resets bold
+              printf("\e[1mOccupied! Enter another roomID\e[m\n"); //\e[1m sets bold and \e[m resets bold
               }       
             break;
          case 3:   
@@ -59,8 +59,8 @@ int main()
 
 int assignRoom(int roomChoice){
    char nameInput[80];
-   room[roomChoice].roomID = roomChoice
+   room[roomChoice].roomID = roomChoice;
    printf("Enter customer name: \n");
-   scanf("%c", &nameInput);
+   fgets(nameInput, 80, stdin);
    room[roomChoice].customerName = nameInput;
-}                   
+}          
