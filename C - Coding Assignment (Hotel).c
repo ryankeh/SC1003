@@ -35,8 +35,7 @@ int main()
             break;
          case 2:   
             printf("assignRoom(): \n");
-            printf("Enter a roomID between 1 and 5: \n");
-            scanf("%d", &roomChoice);     
+                 
             resulta=assignRoom(int roomChoice);
             if(resulta==1){
               printf("The room has been assigned successfully\n");
@@ -60,8 +59,21 @@ int main()
 
 void assignRoom(int roomChoice){
    char nameInput[80];
+   while (1) {
+      printf("Enter a roomID between 1 and 5: \n");
+      scanf("%d", &(room->roomChoice));
+      if (p=strchr(pb‐>name,'\n')) *p = '\0';
+      if (strcmp(pb‐>name,"#")==0)
+         break;
+      printf("Enter customer name: \n");
+      fgets(pb‐>name, 80, stdin);   
+      printf("Enter tel: \n");
+      scanf("%d",&(pb‐>telno));  
+      fgets(dummy, 80, stdin);    
+      pb++;
+      size++;
+   }
    room[roomChoice].roomID = roomChoice;
-   printf("Enter customer name: \n");
    fgets(nameInput, 80, stdin);
    room[roomChoice].customerName = nameInput;
 }          
