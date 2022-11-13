@@ -88,18 +88,18 @@ void assignRoom(Room *r){
         scanf("%d", &i);
         scanf("%c", &dummyChar);
         if(0<i && i<6){
-            while(r[i].status==1){
+            if(r[i].status==1){
                 printf("Occupied! Enter another roomID\n");
-                printf("Enter a roomID between 1 and 5: \n");
-                scanf("%d", &i);
-                scanf("%c", &dummyChar);
+                continue;
             }
-            printf("Enter customer name: \n");
-            fgets(r[i].customerName, 80, stdin);
-            // scanf("\n%s", r[i].customerName);
-            printf("The room has been assigned successfully\n");
-            r[i].status=1;
-            return;
+            else{
+                printf("Enter customer name: \n");
+                fgets(r[i].customerName, 80, stdin);
+                // scanf("\n%s", r[i].customerName);
+                printf("The room has been assigned successfully\n");
+                r[i].status=1;
+                return;
+            }
         }
         else{
             continue;
