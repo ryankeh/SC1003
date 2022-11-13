@@ -17,6 +17,11 @@ int main()
    int i,j;        
    int choice=0;
 
+   for(i=1;i<6;i++){
+        r[i].status=0;
+        r[i].roomID=i;
+    }
+    
    printf("NTU HOTEL ROOM RESERVATION PROGRAM: \n");
    printf("1: listOccupiedRooms()\n");      
    printf("2: assignRoom()\n");
@@ -37,11 +42,11 @@ int main()
             break;
          case 3:   
             printf("removeRoom(): \n");       
-            // removeRoom();
+            removeRoom(r);
             break;
          case 4:
             printf("findCustomer(): \n");
-            // findCustomer();
+            // findCustomer(r);
             break;
       }
    } while (choice!=5);  
@@ -49,23 +54,34 @@ int main()
 }
 
 void listOccupiedRooms(Room *r){
-    int i=0;
+    int i=0,j=0;
     for(i=1;i<=5;i++){
         if (r[i].status==1){
             printf("roomID: %d\n", r[i].roomID);
             printf("customer name: %s\n", r[i].customerName);
+            j+=1;
         }
+    }
+    if(j==0){
+        printf("\e[1mThe hotel is empty\e[m\n");
     }
 }
 
 void assignRoom(Room *r){
-    int i;
+    int i,j=0;
     char nameInput[80];
+    for(i=1;i<=5;i++){
+        if (r[i].status==1){
+            j+=1;
+        }
+    }
+    if(j==5){
+        printf("\e[1mThe hotel is full\e[m\n");
+        return;
     while (1) {
         printf("Enter a roomID between 1 and 5: \n");
         scanf("%d", &i);
         if(0<i && i<6){
-            r[i].roomID=i;
             printf("Room ID: %d\n", r[i].roomID);
             if(r[i].status==1){
                 printf("\e[1mOccupied! Enter another roomID\e[m\n"); //\e[1m sets bold and \e[m resets bold
@@ -82,10 +98,35 @@ void assignRoom(Room *r){
         else{
             continue;
         }
-        
     }
 }
 
 void removeRoom(Room *r){
-    
+    int i,j=0;
+    for(i=1;i<=5;i++){
+        if (r[i].status==0){
+            j+=1;
+        }
+    }
+    if(j==5){
+        printf("\e[1mAll the rooms are empty\e[m\n");
+        return;
+    }
+    while (1) {
+        printf("Enter a roomID between 1 and 5: \n");
+        scanf("%d", &i);
+        if(0<i && i<6){
+            if(r[i].status==0){
+                printf("\e[1mEmpty! Enter another roomID for removal\e[m\n"); //\e[1m sets bold and \e[m resets bold
+            }
+            else{
+                r[i].status=0;
+                printf("Removal is successful\n");
+                break;
+            }
+        }
+        else{
+            continue;
+        }
+    }
 }
