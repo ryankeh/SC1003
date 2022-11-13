@@ -4,10 +4,10 @@ typedef struct{
  int roomID;
  int status;
  char customerName[20];
-} Room; 
+}room; 
 
 void listOccupiedRooms();   
-int assignRoom(int roomChoice);
+void assignRoom(int roomChoice);
 void removeRoom();
 void findCustomer();
 
@@ -16,7 +16,8 @@ int main()
    int i,j;        
    int choice;
    int roomChoice, resulta;
-   Room room[roomChoice];
+   int room.roomID, room.status;
+   char room.customername[20];
     
    printf("NTU HOTEL ROOM RESERVATION PROGRAM: \n");
    printf("1: listOccupiedRooms()\n");      
@@ -57,7 +58,7 @@ int main()
    return 0;
 }
 
-int assignRoom(int roomChoice){
+void assignRoom(int roomChoice){
    char nameInput[80];
    room[roomChoice].roomID = roomChoice;
    printf("Enter customer name: \n");
