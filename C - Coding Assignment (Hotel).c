@@ -162,6 +162,7 @@ void findCustomer(Room *r){
                 printf("The target customer name is found\n");
                 printf("roomID: %d\n", r[i].roomID);
                 printf("customer name: %s", r[i].customerName);
+		return;
             }
             else{
                 n+=1;
