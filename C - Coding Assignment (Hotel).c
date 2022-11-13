@@ -61,7 +61,7 @@ void listOccupiedRooms(Room *r){
     for(i=1;i<=5;i++){
         if (r[i].status==1){
             printf("roomID: %d\n", r[i].roomID);
-            printf("customer name: %s", r[i].customerName);
+            printf("customer name: %s\n", r[i].customerName);
             j+=1;
         }
     }
@@ -71,11 +71,11 @@ void listOccupiedRooms(Room *r){
 }
 
 void assignRoom(Room *r){
-    int i,j=0;
-    char nameInput[80];
+    int i,j=0,k;
+    char name[80];
     char dummyChar;
-    for(i=1;i<=5;i++){
-        if (r[i].status==1){
+    for(k=1;k<=5;k++){
+        if (r[k].status==1){
             j+=1;
         }
     }
@@ -83,26 +83,27 @@ void assignRoom(Room *r){
         printf("The hotel is full\n");
         return;
     }
-    do{
-        printf("Enter a roomID between 1 and 5: \n");
-        scanf("%d", &i);
-        if(0<i && i<6){
-            if(r[i].status==1){
-                printf("Occupied! Enter another roomID\n");
-                scanf("%c", &dummyChar);
-                continue;
-            }
-            else{
-                scanf("%c", &dummyChar);
-                printf("Enter customer name: \n");
-                fgets(r[i].customerName, 80, stdin);
-                printf("The room has been assigned successfully\n");
-                r[i].status=1;
-                return;
-            }
+    
+    i=9;
+    while (i==9)
+    {
+        printf("Enter a roomID between 1 and 5:\n");
+        scanf("%d",&i);
+        if (r[i].status==1){
+            printf("Occupied! Enter another roomID\n");
+            i=9;
         }
-    }while (1);
-   
+        else if (r[i].status==0){
+            printf("Enter customer name:\n");
+            scanf("\n");
+            gets(name);
+            r[i].status=1;
+            strcpy(r[i].customerName,name);
+            printf("The room has been assigned successfully\n");
+            return 0;
+        }
+        i=9;
+    }
 }
 
 void removeRoom(Room *r){
@@ -139,9 +140,9 @@ void findCustomer(Room *r){
     int i,j=0,n=0,lengtha,lengthb;
     char stra[80],strb[80]="";
     char dummyChar;
-    scanf("%c", &dummyChar);
-    printf("Enter customer name: \n");
-    fgets(stra, 80, stdin);
+    printf("Enter customer name:\n");
+    scanf("\n");
+    gets(stra);
     lengtha=strlen(stra);
     for(i=0;i<lengtha;i++){
         stra[i]=tolower(stra[i]);
@@ -153,7 +154,7 @@ void findCustomer(Room *r){
             if(strcmp(stra,strb)==0){
                 printf("The target customer name is found\n");
                 printf("roomID: %d\n", r[i].roomID);
-                printf("customer name: %s", r[i].customerName);
+                printf("customer name: %s\n", r[i].customerName);
                 return;
             }
             else{
