@@ -48,6 +48,7 @@ int main()
    return 0;
 }
 
+
 void assignRoom(Room *r){
     int i;
     char nameInput[80];
@@ -58,7 +59,6 @@ void assignRoom(Room *r){
         printf("Room ID: %d\n", r[i].roomID);
         if(r[i].status==1){
             printf("\e[1mOccupied! Enter another roomID\e[m\n"); //\e[1m sets bold and \e[m resets bold
-            break;
         }
         else{
             printf("Enter customer name: \n");
@@ -67,7 +67,7 @@ void assignRoom(Room *r){
             printf("customer name: %s\n", r[i].customerName);
             printf("The room has been assigned successfully\n");
             r[i].status=1;
+            break;
         }
-        break;
     }
-}
+}    
