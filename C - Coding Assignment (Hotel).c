@@ -29,7 +29,7 @@ int main()
       switch (choice) {
          case 1:  
             printf("listOccupiedRooms(): \n");
-            // listOccupiedRooms(r);  
+            listOccupiedRooms(r);  
             break;
          case 2:   
             printf("assignRoom(): \n");
@@ -48,6 +48,15 @@ int main()
    return 0;
 }
 
+void listOccupiedRooms(Room *r){
+    int i=0;
+    for(i=1;i<=5;i++){
+        if (r[i].status==1){
+            printf("roomID: %d\n", r[i].roomID);
+            printf("customer name: %s\n", r[i].customerName);
+        }
+    }
+}
 
 void assignRoom(Room *r){
     int i;
@@ -70,4 +79,4 @@ void assignRoom(Room *r){
             break;
         }
     }
-}    
+}
