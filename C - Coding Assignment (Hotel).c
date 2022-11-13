@@ -17,6 +17,7 @@ int main()
    Room r[MAX];
    int i,j;        
    int choice=0;
+   char dummyChar;
 
    for(i=1;i<6;i++){
         r[i].status=0;
@@ -71,6 +72,7 @@ void listOccupiedRooms(Room *r){
 void assignRoom(Room *r){
     int i,j=0;
     char nameInput[80];
+    char dummyChar;
     for(i=1;i<=5;i++){
         if (r[i].status==1){
             j+=1;
@@ -83,6 +85,7 @@ void assignRoom(Room *r){
     while (1) {
         printf("Enter a roomID between 1 and 5: \n");
         scanf("%d", &i);
+        scanf("%c", &dummyChar);
         if(0<i && i<6){
             if(r[i].status==1){
                 printf("Occupied! Enter another roomID\n");
