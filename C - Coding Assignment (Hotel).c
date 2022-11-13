@@ -58,7 +58,6 @@ void listOccupiedRooms(Room *r){
     int i=0,j=0;
     for(i=1;i<=5;i++){
         if (r[i].status==1){
-            printf("roomID: %d\n", r[i].roomID);
             printf("customer name: %s\n", r[i].customerName);
             j+=1;
         }
