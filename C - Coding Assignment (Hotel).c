@@ -64,19 +64,29 @@ void assignRoom(Room *r){
     while (1) {
         printf("Enter a roomID between 1 and 5: \n");
         scanf("%d", &i);
-        r[i].roomID=i;
-        printf("Room ID: %d\n", r[i].roomID);
-        if(r[i].status==1){
-            printf("\e[1mOccupied! Enter another roomID\e[m\n"); //\e[1m sets bold and \e[m resets bold
+        printf("i: %d\n", i);
+        if(0<i<6){
+            r[i].roomID=i;
+            printf("Room ID: %d\n", r[i].roomID);
+            if(r[i].status==1){
+                printf("\e[1mOccupied! Enter another roomID\e[m\n"); //\e[1m sets bold and \e[m resets bold
+            }
+            else{
+                printf("Enter customer name: \n");
+                scanf("\n%s", r[i].customerName);
+                printf("customer name: %s\n", r[i].customerName);
+                printf("The room has been assigned successfully\n");
+                r[i].status=1;
+                break;
+            }
         }
         else{
-            printf("Enter customer name: \n");
-            // fgets(r[i].customerName, 80, stdin);
-            scanf("\n%s", r[i].customerName);
-            printf("customer name: %s\n", r[i].customerName);
-            printf("The room has been assigned successfully\n");
-            r[i].status=1;
-            break;
+            continue;
         }
+        
     }
+}
+
+void removeRoom(Room *r){
+    
 }
