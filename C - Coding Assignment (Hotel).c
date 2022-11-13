@@ -71,7 +71,7 @@ void listOccupiedRooms(Room *r){
 }
 
 void assignRoom(Room *r){
-    int i,j=0,a=1;
+    int i,j=0;
     char nameInput[80];
     char dummyChar;
     for(i=1;i<=5;i++){
@@ -101,7 +101,7 @@ void assignRoom(Room *r){
                 return;
             }
         }
-    }while (a);
+    }while (1);
    
 }
 
