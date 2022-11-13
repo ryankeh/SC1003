@@ -64,8 +64,7 @@ void assignRoom(Room *r){
     while (1) {
         printf("Enter a roomID between 1 and 5: \n");
         scanf("%d", &i);
-        printf("i: %d\n", i);
-        if(0<i<6){
+        if(0<i && i<6){
             r[i].roomID=i;
             printf("Room ID: %d\n", r[i].roomID);
             if(r[i].status==1){
