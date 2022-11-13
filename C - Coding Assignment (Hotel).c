@@ -64,7 +64,7 @@ void listOccupiedRooms(Room *r){
         }
     }
     if(j==0){
-        printf("\e[1mThe hotel is empty\e[m\n");
+        printf("The hotel is empty\n");
     }
 }
 
@@ -77,7 +77,7 @@ void assignRoom(Room *r){
         }
     }
     if(j==5){
-        printf("\e[1mThe hotel is full\e[m\n");
+        printf("The hotel is full\n");
         return;
     }
     while (1) {
@@ -86,7 +86,7 @@ void assignRoom(Room *r){
         if(0<i && i<6){
             printf("Room ID: %d\n", r[i].roomID);
             if(r[i].status==1){
-                printf("\e[1mOccupied! Enter another roomID\e[m\n"); //\e[1m sets bold and \e[m resets bold
+                printf("Occupied! Enter another roomID\n");
             }
             else{
                 printf("Enter customer name: \n");
@@ -111,7 +111,7 @@ void removeRoom(Room *r){
         }
     }
     if(j==5){
-        printf("\e[1mAll the rooms are empty\e[m\n");
+        printf("All the rooms are empty\n");
         return;
     }
     while (1) {
@@ -119,7 +119,7 @@ void removeRoom(Room *r){
         scanf("%d", &i);
         if(0<i && i<6){
             if(r[i].status==0){
-                printf("\e[1mEmpty! Enter another roomID for removal\e[m\n"); //\e[1m sets bold and \e[m resets bold
+                printf("Empty! Enter another roomID for removal\n"); //\e[1m sets bold and \e[m resets bold
             }
             else{
                 r[i].status=0;
@@ -163,7 +163,7 @@ void findCustomer(Room *r){
         }
     }
     if(n==5){
-        printf("\e[1mThe target customer name is not found\e[m\n");
+        printf("The target customer name is not found\n");
         return;
     }
 }
