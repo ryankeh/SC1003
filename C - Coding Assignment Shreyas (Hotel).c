@@ -58,7 +58,7 @@ int main()
 
 void listOccupiedRooms(Room *r){
     int i=0,j=0;
-    for(i=0;i<=4;i++){
+    for(i=0;i<5;i++){
         if (r[i].status==1){
             printf("roomID: %d\n", r[i].roomID);
             printf("customer name: %s\n", r[i].customerName);
@@ -151,9 +151,9 @@ void findCustomer(Room *r){
     for(i=0;i<lengtha;i++){
         stra[i]=tolower(stra[i]);
     }
-    for(i=1;i<=5;i++){
+    for(i=0;i<=4;i++){
         if(r[i].status==1){
-            strcpy(strb, r[i-1].customerName);
+            strcpy(strb, r[i].customerName);
             modify(strb, 20);
             if(strcmp(stra,strb)==0){
                 printf("The target customer name is found\n");
