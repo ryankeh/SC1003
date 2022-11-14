@@ -153,7 +153,7 @@ void findCustomer(Room *r){
     }
     for(i=1;i<=5;i++){
         if(r[i].status==1){
-            strcpy(strb, r[i].customerName);
+            strcpy(strb, r[i-1].customerName);
             modify(strb, 20);
             if(strcmp(stra,strb)==0){
                 printf("The target customer name is found\n");
