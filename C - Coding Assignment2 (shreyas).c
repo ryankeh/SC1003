@@ -5,18 +5,18 @@ typedef struct{
  int roomID;
  int status;
  char customerName[20];
-} Room; 
+} Room;
 
-void listOccupiedRooms(Room *r);   
+void listOccupiedRooms(Room *r);  
 void assignRoom(Room *r);
 void removeRoom(Room *r);
 void findCustomer(Room *r);
 void modify(char str[], int size);
 
 int main()
-{    
+{   
    Room r[MAX];
-   int i,j;        
+   int i,j;       
    int choice=0;
    char dummyChar;
 
@@ -24,27 +24,27 @@ int main()
         r[i].status=0;
         r[i].roomID=i+1;
     }
-    
+   
    printf("NTU HOTEL ROOM RESERVATION PROGRAM: \n");
-   printf("1: listOccupiedRooms()\n");      
+   printf("1: listOccupiedRooms()\n");     
    printf("2: assignRoom()\n");
    printf("3: removeRoom()\n");
    printf("4: findCustomer()\n");
-   printf("5: quit\n");  
+   printf("5: quit\n"); 
    do {
       printf("Enter your choice: \n");
       scanf("\n%d", &choice);
       switch (choice) {
-         case 1:  
+         case 1: 
             printf("listOccupiedRooms(): \n");
             listOccupiedRooms(r);
             break;
-         case 2:   
+         case 2:  
             printf("assignRoom(): \n");
             assignRoom(r);
             break;
-         case 3:   
-            printf("removeRoom(): \n");       
+         case 3:  
+            printf("removeRoom(): \n");      
             removeRoom(r);
             break;
          case 4:
@@ -52,7 +52,7 @@ int main()
             findCustomer(r);
             break;
       }
-   } while (choice!=5);  
+   } while (choice!=5); 
    return 0;
 }
 
@@ -84,7 +84,7 @@ void assignRoom(Room *r){
         printf("The hotel is full\n");
         return;
     }
-    
+   
     i=9;
     while (i==9)
     {
@@ -113,7 +113,7 @@ void assignRoom(Room *r){
 void removeRoom(Room *r){
     int i,j=0;
     for(i=1;i<=5;i++){
-        if (r[i].status==0){
+        if (r[i-1].status==0){
             j+=1;
         }
     }
@@ -125,11 +125,11 @@ void removeRoom(Room *r){
         printf("Enter a roomID between 1 and 5: \n");
         scanf("%d", &i);
         if(0<i && i<6){
-            if(r[i].status==0){
+            if(r[i-1].status==0){
                 printf("Empty! Enter another roomID for removal\n"); //\e[1m sets bold and \e[m resets bold
             }
             else{
-                r[i].status=0;
+                r[i-1].status=0;
                 printf("Removal is successful\n");
                 break;
             }
